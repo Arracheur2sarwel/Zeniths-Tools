@@ -1,0 +1,149 @@
+def get_input(prompt):
+    return input(prompt).strip()
+
+def main():
+    # Création d'un dictionnaire pour stocker les informations
+    data = {
+        "Doxed By": "",
+        "Reason": "",
+        "First Pseudo": "",
+        "Second Pseudo": "",
+
+        "Discord Information": {
+            "Token": "",
+            "Username": "",
+            "Display Name": "",
+            "Id": "",
+            "Avatar": "",
+            "Created At": "",
+            "Email": "",
+            "Phone": "",
+            "Nitro": "",
+            "Friends": "",
+            "Gift Code": "",
+            "Mfa": "",
+        },
+
+        "Ip Information": {
+            "Ip Publique": "",
+            "Ip Local": "",
+            "Ipv6": "",
+            "VPN": "",
+        },
+
+        "Pc Information": {
+            "Name": "",
+            "Username": "",
+            "Display Name": "",
+            "Plateform": "",
+            "Exploitation": "",
+            "Windows Key": "",
+            "MAC Adress": "",
+            "HWID Adress": "",
+            "CPU": "",
+            "GPU": "",
+            "RAM": "",
+            "Disk": "",
+            "Screen Main": "",
+            "Screen Sec": "",
+        },
+
+        "Number Information": {
+            "Phone Number": "",
+            "Brand": "",
+        },
+
+        "Personal Information": {
+            "Gender": "",
+            "Last Name": "",
+            "First Name": "",
+            "Age": "",
+            "Mother": "",
+            "Father": "",
+            "Brother": "",
+            "Sister": "",
+        },
+
+        "Loc Information": {
+            "Continent": "",
+            "Country": "",
+            "Region": "",
+            "Postal Code": "",
+            "City": "",
+            "Adress": "",
+            "Timezone": "",
+        }
+    }
+
+    # Collecte des informations
+    print("Veuillez entrer les informations demandées.")
+
+    data["Doxed By"] = get_input("[>] | Doxed By      : ")
+    data["Reason"] = get_input("[>] | Reason        : ")
+    data["First Pseudo"] = get_input("[>] | First Pseudo  : ")
+    data["Second Pseudo"] = get_input("[>] | Second Pseudo : ")
+
+    print("\n[!] | Discord Information:")
+    for key in data["Discord Information"]:
+        data["Discord Information"][key] = get_input(f"[>] | {key} : ")
+
+    print("\n[!] | Ip Information:")
+    for key in data["Ip Information"]:
+        data["Ip Information"][key] = get_input(f"[>] | {key} : ")
+
+    print("\n[!] | Pc Information:")
+    for key in data["Pc Information"]:
+        data["Pc Information"][key] = get_input(f"[>] | {key} : ")
+
+    print("\n[!] | Number Information:")
+    for key in data["Number Information"]:
+        data["Number Information"][key] = get_input(f"[>] | {key} : ")
+
+    print("\n[!] | Personal Information:")
+    for key in data["Personal Information"]:
+        data["Personal Information"][key] = get_input(f"[>] | {key} : ")
+
+    print("\n[!] | Loc Information:")
+    for key in data["Loc Information"]:
+        data["Loc Information"][key] = get_input(f"[>] | {key} : ")
+
+    # Création du texte à écrire dans le fichier
+    output_text = ""
+
+    output_text += "[>] | Doxed By      : " + data["Doxed By"] + "\n"
+    output_text += "[>] | Reason        : " + data["Reason"] + "\n"
+    output_text += "[>] | First Pseudo  : " + data["First Pseudo"] + "\n"
+    output_text += "[>] | Second Pseudo : " + data["Second Pseudo"] + "\n"
+
+    output_text += "\n[!] | Discord Information:\n"
+    for key, value in data["Discord Information"].items():
+        output_text += f"[>] | {key} : {value}\n"
+
+    output_text += "\n[!] | Ip Information:\n"
+    for key, value in data["Ip Information"].items():
+        output_text += f"[>] | {key} : {value}\n"
+
+    output_text += "\n[!] | Pc Information:\n"
+    for key, value in data["Pc Information"].items():
+        output_text += f"[>] | {key} : {value}\n"
+
+    output_text += "\n[!] | Number Information:\n"
+    for key, value in data["Number Information"].items():
+        output_text += f"[>] | {key} : {value}\n"
+
+    output_text += "\n[!] | Personal Information:\n"
+    for key, value in data["Personal Information"].items():
+        output_text += f"[>] | {key} : {value}\n"
+
+    output_text += "\n[!] | Loc Information:\n"
+    for key, value in data["Loc Information"].items():
+        output_text += f"[>] | {key} : {value}\n"
+
+    # Enregistrement dans un fichier texte
+    with open("output.txt", "w") as file:
+        file.write(output_text)
+
+    print("\nLes informations ont été sauvegardées dans le fichier 'output.txt'.")
+
+if __name__ == "__main__":
+    main()
